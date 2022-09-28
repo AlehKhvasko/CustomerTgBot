@@ -1,6 +1,7 @@
 package com.telegarambot.customertgbot.service;
 
 import com.telegarambot.customertgbot.config.BotConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -8,6 +9,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+@Slf4j
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
 
@@ -37,6 +39,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             switch (messageText){
                 case "/start":
                     commandReceived(chatId, update.getMessage().getChat().getFirstName());
+                    log.info("Bot started");
                     break;
                 default:
                     sendMessage(chatId, "Sorry, command was not recognized");
@@ -57,7 +60,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             execute(sendMessage);
         }
         catch (TelegramApiException e){
-
+            log.error("Error in sending message " + e.getMessage());
         }
 
     }
