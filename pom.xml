@@ -8,7 +8,7 @@
         <version>2.7.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.telegaramBot</groupId>
+    <groupId>com.telegaramBot.customertgbot</groupId>
     <artifactId>CustomerTgBot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>CustomerTgBot</name>
@@ -45,19 +45,23 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.3.0</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <assembleDirectory>target</assembleDirectory>
+                    <programs>
+                        <program>
+                            <mainClass>com.telegrambot.customertgbot.CustomerTgBotApplication</mainClass>
+                            <name>workerBot</name>
+                        </program>
+                    </programs>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>copy-dependencies</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>copy-dependencies</goal>
+                            <goal>assemble</goal>
                         </goals>
                     </execution>
                 </executions>
