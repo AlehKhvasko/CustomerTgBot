@@ -13,8 +13,12 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 @Slf4j
 @Component
 public class BotInitialiser {
+    final TelegramBot bot;
+
     @Autowired
-    TelegramBot bot;
+    public BotInitialiser(TelegramBot bot) {
+        this.bot = bot;
+    }
 
     @EventListener({ContextRefreshedEvent.class})
     public void init() throws TelegramApiException{
@@ -24,7 +28,7 @@ public class BotInitialiser {
             telegramBotsApi.registerBot(bot);
         }
         catch (TelegramApiException e){
-            log.error("Error in BOT creating " + e.getMessage());
+            log.error("Error in BOT creation " + e.getMessage());
         }
     }
 
