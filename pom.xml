@@ -52,7 +52,7 @@
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
                         <program>
-                            <mainClass>com.telegrambot.customertgbot.CustomerTgBotApplication</mainClass>
+                            <mainClass>com.telegrambot.customertgbot</mainClass>
                             <name>workerBot</name>
                         </program>
                     </programs>
