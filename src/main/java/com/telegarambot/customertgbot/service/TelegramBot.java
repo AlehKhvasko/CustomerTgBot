@@ -1,19 +1,36 @@
 package com.telegarambot.customertgbot.service;
 
 import com.telegarambot.customertgbot.config.BotConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
+import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.util.ArrayList;
+import java.util.List;
 
+@Slf4j
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
     final private BotConfig botConfig;
 
     public TelegramBot(BotConfig botConfig) {
         this.botConfig = botConfig;
+        List<BotCommand> botCommandList = new ArrayList<>();
+        botCommandList.add(new BotCommand("/start", "get a welcome greatings"));
+        botCommandList.add(new BotCommand("/mydata", "get your data stored"));
+        botCommandList.add(new BotCommand("/deletedata", "delete your data"));
+        botCommandList.add(new BotCommand("/settings", "set your preferences"));
+        try {
+            this.execute(new SetMyCommands(botCommandList, new BotCommandScopeDefault(), null));
+        }catch (TelegramApiException e){
+            log.error("Error setting bots command list " + e.getMessage());
+        }
     }
 
     @Override
