@@ -19,10 +19,8 @@ import java.util.List;
 public class BotInitialiser {
     final TelegramBot bot;
 
-    @Autowired
     public BotInitialiser(TelegramBot bot) {
         this.bot = bot;
-
     }
 
     @EventListener({ContextRefreshedEvent.class})
