@@ -29,6 +29,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         botCommandList.add(new BotCommand("/start", "get a welcome greatings"));
         botCommandList.add(new BotCommand("/mydata", "get your data stored"));
         botCommandList.add(new BotCommand("/deletedata", "delete your data"));
+        botCommandList.add(new BotCommand("/help", "info how to use a bot"));
         botCommandList.add(new BotCommand("/settings", "set your preferences"));
         try {
             this.execute(new SetMyCommands(botCommandList, new BotCommandScopeDefault(), null));
