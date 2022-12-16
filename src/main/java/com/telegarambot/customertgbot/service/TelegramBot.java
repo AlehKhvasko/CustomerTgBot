@@ -18,6 +18,10 @@ import java.util.List;
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
     final private BotConfig botConfig;
+    final static private String HELP_INFO = "Bot was created to demostrate Spring capabilities. \n\n"+
+            "You can execute commands from the main menu on left or by typing it.\n\n "+
+            "Type /start to see welcome message.\n\n"+
+            "Type /help to see this message again.";
 
     public TelegramBot(BotConfig botConfig) {
         this.botConfig = botConfig;
@@ -53,6 +57,10 @@ public class TelegramBot extends TelegramLongPollingBot {
                     startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
                     //log.info("Bot started");
                     break;
+                case "/help":
+                    sendMessage(chatId, HELP_INFO);
+                    break;
+
                 default:
                     sendMessage(chatId, "Sorry, command was not recognized");
             }
