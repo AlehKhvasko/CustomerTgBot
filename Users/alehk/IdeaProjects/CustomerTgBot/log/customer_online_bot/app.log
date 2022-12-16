@@ -1,0 +1,3 @@
+2022-12-15 14:30:56,364 INFO com.telegarambot.customertgbot.CustomerTgBotApplication [main] Starting CustomerTgBotApplication using Java 11.0.2 on Alehs-PC with PID 11628 (C:\Users\alehk\IdeaProjects\CustomerTgBot\target\classes started by alehk in C:\Users\alehk\IdeaProjects\CustomerTgBot)
+2022-12-15 14:30:56,366 INFO com.telegarambot.customertgbot.CustomerTgBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-15 14:30:57,472 INFO com.telegarambot.customertgbot.CustomerTgBotApplication [main] Started CustomerTgBotApplication in 1.389 seconds (JVM running for 2.435)
