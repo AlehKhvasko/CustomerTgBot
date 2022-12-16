@@ -1,0 +1,7 @@
+telegram:
+  api-url: "https://api.telegram.org/"
+  webhook-path: "https://customer-bot-start.herokuapp.com"
+  bot-name: "customer_online_bot"
+  bot-token: "5722847947:AAG6qKs88ome94-iBzJ743faS-jR9fduvlY"
+#bot.name = customer_online_bot
+#bot.token = 5722847947:AAG6qKs88ome94-iBzJ743faS-jR9fduvlY
