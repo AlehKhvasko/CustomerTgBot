@@ -5,19 +5,24 @@ import lombok.Data;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Data
 @Entity
 @Table(name = "usersDataTable")
 public class User {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long chatId;
 
     private String firstName;
     private String lastName;
     private String userName;
     private Timestamp registeredAt;
+
+    public Long getChatId() {
+        return chatId;
+    }
+
+    public void setChatId(Long chatId) {
+        this.chatId = chatId;
+    }
 
     public String getFirstName() {
         return firstName;

@@ -8,11 +8,36 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @EnableScheduling
-@Data
 @PropertySource("application.properties")
 public class BotConfig {
     @Value("${bot.name}")
     String name;
     @Value("${bot.token}")
     String token;
+    @Value("${bot.owner}")
+    Long ownerId;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
+    }
 }
